@@ -1,5 +1,6 @@
 package com.lecture.querydsl_exam.user.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@Builder
 public class SiteUser {
 
     @Id
