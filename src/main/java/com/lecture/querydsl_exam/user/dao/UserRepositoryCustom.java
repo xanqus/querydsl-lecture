@@ -1,5 +1,7 @@
 package com.lecture.querydsl_exam.user.dao;
 
-public interface UserRepositoryCustom {
+import com.lecture.querydsl_exam.user.domain.SiteUser;
 
+public interface UserRepositoryCustom {
+    SiteUser getQslUser(Long id);
 }
