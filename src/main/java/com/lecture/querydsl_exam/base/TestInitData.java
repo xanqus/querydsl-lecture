@@ -26,9 +26,9 @@ public class TestInitData {
                     .build();
 
             SiteUser u2 = SiteUser.builder()
-                    .username("user1")
+                    .username("user2")
                     .password("{noop}1234")
-                    .email("user1@test.com")
+                    .email("user2@test.com")
                     .build();
 
             userRepository.saveAll(Arrays.asList(u1, u2));
