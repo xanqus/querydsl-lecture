@@ -70,9 +70,18 @@ public class UserRepositoryTests {
                 .isEqualTo(1);
     }
 
+    @Test
+    @DisplayName("회원에게 관심사 등록")
+    @Rollback(false)
+    void t5() {
 
+        SiteUser su = userRepository.findById(2L).orElseThrow();
+        su.addInteresetKeywordContent("축구");
+        su.addInteresetKeywordContent("농구");
+        su.addInteresetKeywordContent("달리기");
+        su.addInteresetKeywordContent("달리기");
 
-
+    }
 
 
 }
