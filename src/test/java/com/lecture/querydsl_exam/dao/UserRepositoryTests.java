@@ -109,5 +109,14 @@ public class UserRepositoryTests {
                 .isEqualTo(1);
     }
 
+    @Test
+    @DisplayName("spring data jpa로 축구가 관심사인 회원 검색")
+    void t8() {
+        List<SiteUser> users = userRepository.findByinterestKeywords_content("축구");
+
+        assertThat(users.size())
+                .isEqualTo(2);
+    }
+
 
 }
