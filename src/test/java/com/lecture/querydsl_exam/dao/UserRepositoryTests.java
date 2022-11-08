@@ -75,12 +75,38 @@ public class UserRepositoryTests {
     @Rollback(false)
     void t5() {
 
-        SiteUser su = userRepository.findById(2L).orElseThrow();
-        su.addInteresetKeywordContent("축구");
-        su.addInteresetKeywordContent("농구");
-        su.addInteresetKeywordContent("달리기");
-        su.addInteresetKeywordContent("달리기");
+        SiteUser su2 = userRepository.findById(2L).orElseThrow();
+        su2.addInteresetKeywordContent("축구");
+        su2.addInteresetKeywordContent("농구");
+        su2.addInteresetKeywordContent("달리기");
+        su2.addInteresetKeywordContent("달리기");
+        userRepository.save(su2);
 
+        SiteUser su3 = userRepository.findById(3L).orElseThrow();
+        su3.addInteresetKeywordContent("축구");
+        su3.addInteresetKeywordContent("농구");
+        su3.addInteresetKeywordContent("산책하기");
+        su3.addInteresetKeywordContent("카페가기");
+        userRepository.save(su3);
+
+    }
+
+    @Test
+    @DisplayName("축구가 관심사인 회원 검색")
+    void t6() {
+        List<SiteUser> users = userRepository.getQslUsersByInterestKeyword("축구");
+
+        assertThat(users.size())
+                .isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("달리기가 관심사인 회원 검색")
+    void t7() {
+        List<SiteUser> users = userRepository.getQslUsersByInterestKeyword("달리기");
+
+        assertThat(users.size())
+                .isEqualTo(1);
     }
 
 
